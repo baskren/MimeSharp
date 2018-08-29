@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Linq;
@@ -8,15 +9,21 @@ namespace MimeSharp
 {
     public class MimeSharp
     {
+
+
+
         Dictionary<string, List<string>> apacheMimes = new Dictionary<string, List<string>>();
 
         private readonly string defaultType = "application/octet-stream";
 
         public MimeSharp()
         {
-            var mimeTypes = Path.Combine("MimeTypes", "mime.types");
+            //var mimeTypes = Path.Combine("MimeTypes", "mime.types");
+            var assembly = this.GetType().GetTypeInfo().Assembly;
+            var resourceName = "MimeSharp.Resources.mime.types";
 
-            using (StreamReader streamReader = new StreamReader(mimeTypes))
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            using (StreamReader streamReader = new StreamReader(stream))
             {
                 while (!streamReader.EndOfStream)
                 {
