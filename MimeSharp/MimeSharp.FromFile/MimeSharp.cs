@@ -27,7 +27,7 @@ namespace MimeSharp
             {
                 while (!streamReader.EndOfStream)
                 {
-                    string line = streamReader.ReadLine();
+                    var line = streamReader.ReadLine();
 
                     //Remove comments
                     var currentLine = Regex.Replace(line, @"\s*#.*|^\s*|\s*$/g", "");
