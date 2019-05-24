@@ -5,7 +5,9 @@ namespace MimeSharp
 {
     class MainClass
     {
+#pragma warning disable CC0057 // Unused parameters
         public static void Main(string[] args)
+#pragma warning restore CC0057 // Unused parameters
         {
             var MimeSharp = new MimeSharp();
 
