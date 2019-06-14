@@ -12,7 +12,7 @@ namespace MimeSharp
 
 
 
-        Dictionary<string, List<string>> apacheMimes = new Dictionary<string, List<string>>();
+        readonly Dictionary<string, List<string>> apacheMimes = new Dictionary<string, List<string>>();
 
         private readonly string defaultType = "application/octet-stream";
 
